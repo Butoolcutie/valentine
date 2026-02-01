@@ -6,29 +6,59 @@
     body {
       background-color: pink;
       text-align: center;
-      font-family: Arial;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
       padding-top: 100px;
+    }
+    h1, h2 {
+      color: #800080;
     }
     button {
       font-size: 20px;
       padding: 10px 20px;
       margin: 10px;
       cursor: pointer;
+      border: none;
+      border-radius: 10px;
+      background-color: #ff69b4;
+      color: white;
+      transition: all 0.3s ease;
+    }
+    button:hover {
+      transform: scale(1.2);
+    }
+    #noBtn {
+      position: relative;
     }
   </style>
 </head>
 <body>
 
-  <h1>Hey Bestie 💕</h1>
+  <h1>Hey Ariba 💕</h1>
   <h2>Will you be my Valentine? 🌸</h2>
 
-  <button onclick="alert('YAYYY 💖 Best friends forever!')">
+  <button id="yesBtn" onclick="alert('YAYYY 💖 Butool & Ariba forever!')">
     YES 💃
   </button>
 
-  <button onclick="alert('No is not allowed 😌 Try again')">
-    NO 😏
+  <button id="noBtn" onclick="alert('Nooo 😏 Try again!')">
+    NO 😈
   </button>
+
+  <script>
+    const noBtn = document.getElementById('noBtn');
+
+    // Make NO button move randomly when mouse hovers
+    noBtn.addEventListener('mouseenter', () => {
+      const x = Math.floor(Math.random() * 300) - 150; // random X shift
+      const y = Math.floor(Math.random() * 300) - 150; // random Y shift
+      noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    });
+
+    // Reset transform on click
+    noBtn.addEventListener('click', () => {
+      noBtn.style.transform = 'translate(0,0)';
+    });
+  </script>
 
 </body>
 </html>
